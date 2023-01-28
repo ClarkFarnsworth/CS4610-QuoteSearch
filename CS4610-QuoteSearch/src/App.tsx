@@ -8,12 +8,13 @@ interface Quote{
 }
 
 function App() {
-  const [quotes, setQuote] = useState<Quote[]>([]);
+  const [quotes, setQuote] = useState<Quote>();
 
   const getQuote = async () => {
     const result = await fetch("https://usu-quotes-mimic.vercel.app/api/random");
-    console.log(await result.json());
+    
     return(await result.json());
+      
   }
   
   useEffect( () => {
@@ -36,12 +37,11 @@ function App() {
         type="text"         
         placeholder="Ken Block"
         />
-        <button onClick={setQuote}>
+        <button >
           Search
         </button>
         </div>
-        <div>
-          { getQuote().content }
+        <div>{}
         </div>
       </div>
     </div>
